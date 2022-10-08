@@ -3,6 +3,8 @@
   "resourceVersion": "1.6",
   "name": "ahyba_ysan",
   "resources": [
+    {"id":{"name":"obj_poop_button","path":"objects/obj_poop_button/obj_poop_button.yy",},"order":10,},
+    {"id":{"name":"spr_poop_button","path":"sprites/spr_poop_button/spr_poop_button.yy",},"order":7,},
     {"id":{"name":"obj_arribaca_dead","path":"objects/obj_arribaca_dead/obj_arribaca_dead.yy",},"order":7,},
     {"id":{"name":"spr_poop","path":"sprites/spr_poop/spr_poop.yy",},"order":5,},
     {"id":{"name":"obj_click_hand","path":"objects/obj_click_hand/obj_click_hand.yy",},"order":4,},
@@ -11,6 +13,7 @@
     {"id":{"name":"obj_void","path":"objects/obj_void/obj_void.yy",},"order":1,},
     {"id":{"name":"obj_ceil","path":"objects/obj_ceil/obj_ceil.yy",},"order":9,},
     {"id":{"name":"obj_poop","path":"objects/obj_poop/obj_poop.yy",},"order":6,},
+    {"id":{"name":"obj_inputs_controller","path":"objects/obj_inputs_controller/obj_inputs_controller.yy",},"order":11,},
     {"id":{"name":"spr_arribaca_alive","path":"sprites/spr_arribaca_alive/spr_arribaca_alive.yy",},"order":0,},
     {"id":{"name":"spr_dust","path":"sprites/spr_dust/spr_dust.yy",},"order":3,},
     {"id":{"name":"spr_click_hand","path":"sprites/spr_click_hand/spr_click_hand.yy",},"order":4,},

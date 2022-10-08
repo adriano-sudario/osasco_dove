@@ -1,12 +1,12 @@
-if (mouse_check_button_pressed(mb_left)) {
-	with (obj_arribaca)
-		is_flying = true;
+//if (mouse_check_button_pressed(mb_left)) {
+//	with (obj_arribaca)
+//		is_flying = true;
 	
-	with (obj_cliff)
-		is_leaving = true;
+//	with (obj_cliff)
+//		is_leaving = true;
 	
-	instance_destroy();
-}
+//	instance_destroy();
+//}
 
 frames_count++;
 

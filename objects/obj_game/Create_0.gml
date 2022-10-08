@@ -1,1 +1,1 @@
-flying_speed = 5;
+flying_speed = 10;
