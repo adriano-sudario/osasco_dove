@@ -10,7 +10,6 @@ function set_force(_force) {
 	force = -_force;
 }
 
-//function begin_shake(_magnitude = 4, _magnitude_increment = 0, _frames = -1) {
 function begin_shake(_magnitude = 5, _magnitude_increment = .3, _frames = -1) {
 	shake = {
 		frames: _frames,
@@ -27,5 +26,4 @@ function begin_rotate(_rotation_speed = 10) {
 	image_xscale = -image_xscale;
 }
 
-//begin_shake();
 begin_rotate();

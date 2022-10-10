@@ -1,1 +1,2 @@
-flying_speed = 10;
+#macro STARTING_FLYING_SPEED 10;
+flying_speed = STARTING_FLYING_SPEED;

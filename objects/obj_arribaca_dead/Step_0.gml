@@ -8,6 +8,13 @@ y += force_applied;
 
 image_angle += rotation_increment;
 
+if (x > xstart) {
+	x -= obj_game.flying_speed;
+	
+	if (x < xstart)
+		x = xstart;
+}
+
 if (bbox_top > obj_void.bbox_top + (shake != noone ? shake.magnitude : 0))
 	instance_destroy();
 

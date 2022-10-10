@@ -1,13 +1,3 @@
-//if (mouse_check_button_pressed(mb_left)) {
-//	with (obj_arribaca)
-//		is_flying = true;
-	
-//	with (obj_cliff)
-//		is_leaving = true;
-	
-//	instance_destroy();
-//}
-
 frames_count++;
 
 if (frames_count >= (is_holding ? max_frames_on_holding : max_frames_on_handing_over)) {

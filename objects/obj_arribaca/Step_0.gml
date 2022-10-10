@@ -1,17 +1,29 @@
 if (!is_flying)
 	return;
 
-//if (debug_mode && mouse_check_button_pressed(mb_middle))
-//	instance_create_layer(x, y, layer, obj_poop);
+if (is_dashing) {
+	x += lengthdir_x(current_dash_speed, image_angle);
+	y += lengthdir_y(current_dash_speed, image_angle);
+	current_dash_speed -= dash_break_force;
+	
+	if (current_dash_speed <= obj_game.flying_speed) {
+		is_dashing = false;
+		image_angle = 0;
+		image_index = 1;
+	}
+	
+	return;
+}
 
-//if (mouse_check_button(mb_left))
-//	flap_wings();
+if (x > xstart) {
+	x -= obj_game.flying_speed;
+	
+	if (x < xstart)
+		x = xstart;
+}
 
 if (!is_flapping_wings)
 	gravity_force_applied += gravity_force;
-
-//if (mouse_check_button_released(mb_left))
-//	stop_flapping_wings();
 
 y += gravity_force_applied;
 image_index = is_flight_force_applied ? 2 : 1;

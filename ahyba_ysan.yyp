@@ -8,6 +8,7 @@
     {"id":{"name":"obj_arribaca_dead","path":"objects/obj_arribaca_dead/obj_arribaca_dead.yy",},"order":7,},
     {"id":{"name":"spr_poop","path":"sprites/spr_poop/spr_poop.yy",},"order":5,},
     {"id":{"name":"obj_click_hand","path":"objects/obj_click_hand/obj_click_hand.yy",},"order":4,},
+    {"id":{"name":"array_find","path":"scripts/array_find/array_find.yy",},"order":1,},
     {"id":{"name":"obj_particle","path":"objects/obj_particle/obj_particle.yy",},"order":3,},
     {"id":{"name":"obj_arribaca","path":"objects/obj_arribaca/obj_arribaca.yy",},"order":0,},
     {"id":{"name":"obj_void","path":"objects/obj_void/obj_void.yy",},"order":1,},
