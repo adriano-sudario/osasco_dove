@@ -1,0 +1,1 @@
+distance += obj_game.flying_speed;

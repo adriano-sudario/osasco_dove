@@ -6,11 +6,8 @@ if (is_dashing) {
 	y += lengthdir_y(current_dash_speed, image_angle);
 	current_dash_speed -= dash_break_force;
 	
-	if (current_dash_speed <= obj_game.flying_speed) {
-		is_dashing = false;
-		image_angle = 0;
-		image_index = 1;
-	}
+	if (current_dash_speed <= obj_game.flying_speed)
+		on_dash_end();
 	
 	return;
 }

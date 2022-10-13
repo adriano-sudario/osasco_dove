@@ -1,7 +1,7 @@
 if (debug_mode && mouse_check_button_pressed(mb_right))
 	room_restart();
 
-if (instance_exists(obj_click_hand)) {
+if (!is_active) {
 	if (mouse_check_button_pressed(mb_left) && collision_point(mouse_x, mouse_y, obj_void, false, false))
 		start_game();
 	else

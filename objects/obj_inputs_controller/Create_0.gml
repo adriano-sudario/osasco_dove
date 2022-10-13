@@ -1,36 +1,27 @@
 is_holding_tap = false;
 is_holding_poop_button = false;
 is_arribaca_alive = instance_exists(obj_arribaca);
-tap_hold_frames_count = 0;
 tap_hold_positions = [];
 boost_minimum_distance = 200;
+is_active = false;
+elapsed_holding_tap_ms = 0;
+max_holding_tap_ms_to_dash = 250;
 
 function start_game() {
-	with (obj_arribaca)
-		is_flying = true;
-	
-	with (obj_cliff)
-		is_leaving = true;
-	
-	with (obj_poop_button)
-		visible = true;
-	
-	with (obj_game)
-		flying_speed = STARTING_FLYING_SPEED;
-	
-	instance_destroy(obj_click_hand);
+	is_active = true;
+	obj_game.start();
 }
 
 function on_tap_begin() {
 	is_holding_tap = true;
-	tap_hold_frames_count = 0;
 	tap_hold_positions = [];
+	elapsed_holding_tap_ms = 0;
 }
 
 function on_tap_hold() {
-	tap_hold_frames_count++;
+	elapsed_holding_tap_ms += delta_time / 1000;
 	
-	if (tap_hold_frames_count <= 10)
+	if (elapsed_holding_tap_ms <= max_holding_tap_ms_to_dash)
 		array_push(tap_hold_positions, { x: mouse_x, y: mouse_y });
 	
 	if (is_arribaca_alive) {
@@ -45,7 +36,7 @@ function on_tap_released() {
 	if (is_arribaca_alive) {
 		obj_arribaca.stop_flapping_wings();
 		
-		if (tap_hold_frames_count <= 10) {
+		if (elapsed_holding_tap_ms <= max_holding_tap_ms_to_dash) {
 			var _taps_length = array_length(tap_hold_positions);
 			var _first_tap = tap_hold_positions[0];
 			var _last_tap = tap_hold_positions[_taps_length - 1];
@@ -53,13 +44,16 @@ function on_tap_released() {
 			var _tap_distance = point_distance(_first_tap.x, _first_tap.y, _last_tap.x, _last_tap.y);
 			
 			if (_is_left_to_right && _tap_distance >= boost_minimum_distance) {
+				if (instance_exists(obj_slide_hand))
+					instance_destroy(obj_slide_hand);
+				
 				var _angle = point_direction(_first_tap.x, _first_tap.y, _last_tap.x, _last_tap.y);
 				obj_arribaca.dash(_angle);
 			}
 		}
 	}
 	
-	tap_hold_frames_count = 0;
+	elapsed_holding_tap_ms = 0;
 	tap_hold_positions = [];
 }
 
