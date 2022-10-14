@@ -61,8 +61,7 @@ change_angle();
 function update_movement() {
 	if (is_dead) {
 		remove_time_source_and_tween();
-		var _x_increment = obj_game.flying_speed + speed_towards_arribaca;
-		x -= _x_increment;
+		base_update_movement();
 		return;
 	}
 	

@@ -7,6 +7,8 @@ collectible = {
 enemy = {
 	guy: { index: obj_guy, y_range: noone },
 	airplane: { index: obj_airplane, y_range: { min_y: 20, max_y: 240 } },
+	big_cry: { index: obj_big_cry, y_range: noone },
+	balloon_priest: { index: obj_balloon_priest, y_range: { min_y: 100, max_y: 100 } },
 	glider_guy: { index: obj_glider_guy, y_range: { min_y: 20, max_y: 240 } },
 };
 
@@ -37,7 +39,7 @@ function spawn_collectible() {
 }
 
 function spawn_enemy() {
-	spawn_entity(enemy.glider_guy);
+	spawn_entity(enemy.big_cry);
 }
 
 function spawn() {

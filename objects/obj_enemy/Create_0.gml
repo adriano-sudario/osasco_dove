@@ -39,9 +39,13 @@ function on_dead() {
 	image_angle += death_rotation_increment;
 }
 
-function update_movement() {
+function base_update_movement() {
 	var _x_increment = obj_game.flying_speed + speed_towards_arribaca;
 	x -= _x_increment;
+}
+
+function update_movement() {
+	base_update_movement();
 }
 
 function base_die() {
