@@ -27,7 +27,7 @@
     {"id":{"name":"obj_particle","path":"objects/obj_particle/obj_particle.yy",},"order":3,},
     {"id":{"name":"obj_record_manager","path":"objects/obj_record_manager/obj_record_manager.yy",},"order":12,},
     {"id":{"name":"obj_arribaca","path":"objects/obj_arribaca/obj_arribaca.yy",},"order":0,},
-    {"id":{"name":"obj_void","path":"objects/obj_void/obj_void.yy",},"order":11,},
+    {"id":{"name":"obj_tap_area","path":"objects/obj_tap_area/obj_tap_area.yy",},"order":11,},
     {"id":{"name":"obj_container","path":"objects/obj_container/obj_container.yy",},"order":3,},
     {"id":{"name":"increase_extra_point","path":"scripts/increase_extra_point/increase_extra_point.yy",},"order":4,},
     {"id":{"name":"obj_ceil","path":"objects/obj_ceil/obj_ceil.yy",},"order":0,},
@@ -59,7 +59,7 @@
     {"id":{"name":"obj_slide_hand","path":"objects/obj_slide_hand/obj_slide_hand.yy",},"order":10,},
     {"id":{"name":"obj_glider_guy","path":"objects/obj_glider_guy/obj_glider_guy.yy",},"order":3,},
     {"id":{"name":"spr_arribaca_dead","path":"sprites/spr_arribaca_dead/spr_arribaca_dead.yy",},"order":1,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"OneBitRoom","path":"rooms/OneBitRoom/OneBitRoom.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Android","path":"options/android/options_android.yy",},
@@ -79,7 +79,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"OneBitRoom","path":"rooms/OneBitRoom/OneBitRoom.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},

@@ -1,5 +1,5 @@
 if (!is_active) {
-	if (mouse_check_button_pressed(mb_left) && collision_point(mouse_x, mouse_y, obj_void, false, false))
+	if (mouse_check_button_pressed(mb_left) && collision_point(mouse_x, mouse_y, obj_tap_area, false, false))
 		start_game();
 	else
 		return;
@@ -16,7 +16,7 @@ if (mouse_check_button_pressed(mb_left)) {
 	
 		if (_is_poop_button_avaiable && collision_point(mouse_x, mouse_y, obj_poop_button, false, false))
 			on_poop_button_tap_begin();
-		else if (collision_point(mouse_x, mouse_y, obj_void, false, false))
+		else if (collision_point(mouse_x, mouse_y, obj_tap_area, false, false))
 			on_tap_begin();
 	}
 }

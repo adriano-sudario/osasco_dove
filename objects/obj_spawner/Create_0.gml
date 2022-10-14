@@ -20,12 +20,12 @@ function spawn_entity(_entity) {
 		x = display_get_gui_width() + abs(sprite_xoffset);
 		
 		if (_entity.y_range == noone) {
-			y = obj_void.bbox_top - bbox_get_height(self) + bbox_get_yoffset(self);
+			y = obj_tap_area.bbox_top - bbox_get_height(self) + bbox_get_yoffset(self);
 		} else {
 			var _bbox_yoffset = bbox_get_yoffset(self);
 			var _min_y = _entity.y_range.min_y + _bbox_yoffset;
 			var _bbox_height = bbox_get_height(self);
-			var _floor = obj_void.bbox_top;
+			var _floor = obj_tap_area.bbox_top;
 			var _max_y = _floor - _entity.y_range.max_y - _bbox_height + _bbox_yoffset;
 			y = irandom_range(_min_y, _max_y);
 		}

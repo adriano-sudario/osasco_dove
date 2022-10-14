@@ -8,4 +8,4 @@ points_description = "";
 draw_set_font(font);
 text_height = string_height("STRING");
 x = display_get_gui_width() * .5;
-y = obj_void.bbox_top + margin_y;
+y = obj_tap_area.bbox_top + margin_y;

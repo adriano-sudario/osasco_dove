@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_void",
+  "name": "obj_tap_area",
   "spriteId": {
     "name": "spr_black",
     "path": "sprites/spr_black/spr_black.yy",

@@ -9,8 +9,8 @@ cooldown_frames = max_frames_on_handing_over;
 
 function prepare_to_slide() {
 	var _margin = 160;
-	var _minimum_y = obj_void.bbox_top + _margin;
-	var _maximum_y = obj_void.bbox_bottom - _margin;
+	var _minimum_y = obj_tap_area.bbox_top + _margin;
+	var _maximum_y = obj_tap_area.bbox_bottom - _margin;
 	var _y_range = _maximum_y - _minimum_y;
 	starting_position.y = irandom_range(_minimum_y, _maximum_y);
 	
