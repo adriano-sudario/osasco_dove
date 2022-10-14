@@ -16,6 +16,7 @@ var _center_of_screen = display_get_gui_width() * .5;
 x_flip_trigger = irandom_range(_center_of_screen - 150, _center_of_screen + 150);
 death_sprite_index = spr_guy;
 death_image_index = 1;
+poop_instance = noone;
 
 function die() {
 	with(instance_create_layer(x, y, layer, obj_skate)) {
@@ -37,6 +38,9 @@ function die() {
 			sprite_index = spr_skate_air;
 	}
 	
+	if (poop_instance != noone)
+		instance_destroy(poop_instance);
+	
 	base_die();
 }
 
@@ -49,6 +53,10 @@ function reset_flip_force() {
 
 function set_flip_force() {
 	y -= initial_force_impulse;
+	
+	if (poop_instance != noone)
+		poop_instance.y -= initial_force_impulse;
+	
 	gravity_force = random_range(minimum_gravity_force, maximum_gravity_force);
 	force_increment = gravity_force / 10;
 	starting_force = gravity_force;
@@ -72,6 +80,9 @@ function get_back_to_the_floor() {
 	var _bbox_height = bbox_get_height(self);
 	var _floor = obj_tap_area.bbox_top;
 	y = _floor - _bbox_height + _bbox_yoffset;
+	
+	if (poop_instance != noone)
+		poop_instance.y = _floor - _bbox_height + _bbox_yoffset;
 }
 
 function end_flip() {
@@ -96,6 +107,9 @@ function update_movement() {
 
 		force_applied += force;
 		y += force_applied;
+		
+		if (poop_instance != noone)
+			poop_instance.y += force_applied;
 
 		if (image_index < 2)
 			image_index = 2;
