@@ -1,14 +1,5 @@
-if (is_dead) {
-	death_force += death_force_increment;
+if (is_dead)
+	on_dead();
 
-	if (death_force > death_starting_force)
-		death_force = death_starting_force;
-
-	death_force_applied += death_force;
-	y += death_force_applied;
-	image_angle += death_rotation_increment;
-}
-
-var _x_increment = obj_game.flying_speed + speed_towards_arribaca;
-x -= _x_increment;
+update_movement();
 remove_if_offscreen();

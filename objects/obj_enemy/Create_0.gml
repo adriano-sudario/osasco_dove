@@ -7,6 +7,7 @@ death_force_applied = 0;
 death_rotation_increment = 0;
 death_sprite_index = sprite_index;
 death_image_index = 0;
+death_rotation_speed = 10;
 points_on_death = 50;
 
 function set_force(_force) {
@@ -14,13 +15,33 @@ function set_force(_force) {
 	death_force = -_force;
 }
 
-function begin_rotate(_rotation_speed = 10) {
-	death_rotation_increment = _rotation_speed;
+function begin_rotate() {
+	death_rotation_increment = death_rotation_speed;
+}
+
+function destroy() {
+	instance_destroy();
 }
 
 function remove_if_offscreen() {
 	if (x + (bbox_get_width(self) - bbox_get_xoffset(self)) < 0)
-		instance_destroy();
+		destroy();
+}
+
+function on_dead() {
+	death_force += death_force_increment;
+
+	if (death_force > death_starting_force)
+		death_force = death_starting_force;
+
+	death_force_applied += death_force;
+	y += death_force_applied;
+	image_angle += death_rotation_increment;
+}
+
+function update_movement() {
+	var _x_increment = obj_game.flying_speed + speed_towards_arribaca;
+	x -= _x_increment;
 }
 
 function base_die() {
