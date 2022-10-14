@@ -30,13 +30,15 @@ function dash(_angle) {
 	current_dash_speed = dash_speed;
 	can_dash = false;
 	image_angle = _angle;
-	image_index = 3;
+	image_index = 0;
+	sprite_index = spr_arribaca_dash;
 }
 
 function on_dash_end() {
 	is_dashing = false;
 	image_angle = 0;
 	image_index = 1;
+	sprite_index = spr_arribaca_alive;
 	obj_dash_cooldown_bar.begin_cooldown();
 }
 

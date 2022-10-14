@@ -1,2 +1,2 @@
-obj_extra_manager.extra += points_value * obj_game.multiplier;
+increase_extra_point(self, points_value);
 instance_destroy();
