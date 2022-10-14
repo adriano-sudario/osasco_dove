@@ -1,7 +1,7 @@
 {
   "resourceType": "GMProject",
   "resourceVersion": "1.6",
-  "name": "ahyba_ysan",
+  "name": "osasco_dove",
   "resources": [
     {"id":{"name":"obj_points_manager","path":"objects/obj_points_manager/obj_points_manager.yy",},"order":8,},
     {"id":{"name":"spr_dove_alive","path":"sprites/spr_dove_alive/spr_dove_alive.yy",},"order":3,},
