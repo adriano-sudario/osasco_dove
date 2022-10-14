@@ -36,7 +36,7 @@ function spawn_collectible() {
 }
 
 function spawn_enemy() {
-	spawn_entity(enemy.airplane);
+	spawn_entity(enemy.guy);
 }
 
 function spawn() {

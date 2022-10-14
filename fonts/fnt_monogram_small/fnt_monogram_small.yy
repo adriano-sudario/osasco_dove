@@ -1,7 +1,7 @@
 {
   "resourceType": "GMFont",
   "resourceVersion": "1.0",
-  "name": "fnt_monogram_medium",
+  "name": "fnt_monogram_small",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,

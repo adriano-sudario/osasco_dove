@@ -1,0 +1,11 @@
+font = fnt_monogram_medium;
+margin_y = 40;
+margin = 40;
+best_distance = 0;
+best_points = 0;
+distance_description = "";
+points_description = "";
+draw_set_font(font);
+text_height = string_height("STRING");
+x = display_get_gui_width() * .5;
+y = obj_void.bbox_top + margin_y;

@@ -44,8 +44,10 @@ function on_tap_released() {
 			var _tap_distance = point_distance(_first_tap.x, _first_tap.y, _last_tap.x, _last_tap.y);
 			
 			if (_is_left_to_right && _tap_distance >= boost_minimum_distance) {
-				if (instance_exists(obj_slide_hand))
+				if (instance_exists(obj_slide_hand)) {
+					obj_game.has_shown_slide_tutorial = true;
 					instance_destroy(obj_slide_hand);
+				}
 				
 				var _angle = point_direction(_first_tap.x, _first_tap.y, _last_tap.x, _last_tap.y);
 				obj_arribaca.dash(_angle);

@@ -12,7 +12,7 @@ function get_total_description() {
 		other.distance = distance;
 	
 	with(obj_extra_manager)
-		other.extra = extra;
+		other.extra = shown_points;
 	
 	return string(distance + extra);
 }
