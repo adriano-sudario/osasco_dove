@@ -14,9 +14,9 @@ dash_break_force = .5;
 dash_cooldown_ms = 3000;
 
 function die() {
-	var death_arribas = instance_create_layer(x, y - 40, layer, obj_arribaca_dead);
-	sprite_set_offset(death_arribas, sprite_xoffset, sprite_yoffset);
-	death_arribas.set_force(gravity_force);
+	var death_dove = instance_create_layer(x, y - 40, layer, obj_dove_dead);
+	sprite_set_offset(death_dove, sprite_xoffset, sprite_yoffset);
+	death_dove.set_force(gravity_force);
 	obj_game.terminate();
 	
 	instance_destroy();
@@ -31,14 +31,14 @@ function dash(_angle) {
 	can_dash = false;
 	image_angle = _angle;
 	image_index = 0;
-	sprite_index = spr_arribaca_dash;
+	sprite_index = spr_dove_dash;
 }
 
 function on_dash_end() {
 	is_dashing = false;
 	image_angle = 0;
 	image_index = 1;
-	sprite_index = spr_arribaca_alive;
+	sprite_index = spr_dove_alive;
 	obj_dash_cooldown_bar.begin_cooldown();
 }
 

@@ -1,6 +1,6 @@
 event_inherited();
 
-speed_towards_arribaca = 2;
+speed_towards_dove = 2;
 minimum_gravity_force = .5;
 maximum_gravity_force = 4;
 gravity_force = .5;
@@ -20,7 +20,7 @@ death_image_index = 1;
 function die() {
 	with(instance_create_layer(x, y, layer, obj_skate)) {
 		is_on_floor = !other.is_flipping;
-		move_speed = obj_game.flying_speed + other.speed_towards_arribaca;
+		move_speed = obj_game.flying_speed + other.speed_towards_dove;
 		
 		other.sprite_index = spr_big_cry_floor;
 		var _bbox_yoffset = bbox_get_yoffset(other);

@@ -1,6 +1,6 @@
 is_holding_tap = false;
 is_holding_poop_button = false;
-is_arribaca_alive = instance_exists(obj_arribaca);
+is_dove_alive = instance_exists(obj_dove);
 tap_hold_positions = [];
 boost_minimum_distance = 200;
 is_active = false;
@@ -24,17 +24,17 @@ function on_tap_hold() {
 	if (elapsed_holding_tap_ms <= max_holding_tap_ms_to_dash)
 		array_push(tap_hold_positions, { x: mouse_x, y: mouse_y });
 	
-	if (is_arribaca_alive) {
+	if (is_dove_alive) {
 		generate_mouse_particles();
-		obj_arribaca.flap_wings();
+		obj_dove.flap_wings();
 	}
 }
 
 function on_tap_released() {
 	is_holding_tap = false;
 	
-	if (is_arribaca_alive) {
-		obj_arribaca.stop_flapping_wings();
+	if (is_dove_alive) {
+		obj_dove.stop_flapping_wings();
 		
 		if (elapsed_holding_tap_ms <= max_holding_tap_ms_to_dash) {
 			var _taps_length = array_length(tap_hold_positions);
@@ -50,7 +50,7 @@ function on_tap_released() {
 				}
 				
 				var _angle = point_direction(_first_tap.x, _first_tap.y, _last_tap.x, _last_tap.y);
-				obj_arribaca.dash(_angle);
+				obj_dove.dash(_angle);
 			}
 		}
 	}
@@ -61,7 +61,7 @@ function on_tap_released() {
 
 function on_poop_button_tap_begin() {
 	is_holding_poop_button = true;
-	obj_arribaca.poop();
+	obj_dove.poop();
 	obj_poop_button.image_xscale = .75;
 	obj_poop_button.image_yscale = .75;
 }

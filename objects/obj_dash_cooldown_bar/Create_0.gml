@@ -7,15 +7,13 @@ is_visible = false;
 
 function begin_cooldown() {
 	cooldown_percent = 0;
-	tweening_custom(TWEEN_MODE.PERSIST, "cooldown_percent", 1, obj_arribaca.dash_cooldown_ms, 
+	tweening_custom(TWEEN_MODE.PERSIST, "cooldown_percent", 1, obj_dove.dash_cooldown_ms, 
 	{
 		on_finish: function() {
-			if (!obj_game.has_shown_slide_tutorial && instance_exists(obj_arribaca)) {
-				//obj_game.has_shown_slide_tutorial = true;
+			if (!obj_game.has_shown_slide_tutorial && instance_exists(obj_dove))
 				instance_create_depth(x, y, -999, obj_slide_hand);
-			}
 			
-			with(obj_arribaca)
+			with(obj_dove)
 				can_dash = true;
 		}
 	});

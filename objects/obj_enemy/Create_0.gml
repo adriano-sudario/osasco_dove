@@ -1,4 +1,4 @@
-speed_towards_arribaca = 0;
+speed_towards_dove = 0;
 is_dead = false;
 death_starting_force = 0;
 death_force = 0;
@@ -40,7 +40,7 @@ function on_dead() {
 }
 
 function base_update_movement() {
-	var _x_increment = obj_game.flying_speed + speed_towards_arribaca;
+	var _x_increment = obj_game.flying_speed + speed_towards_dove;
 	x -= _x_increment;
 }
 
@@ -54,7 +54,7 @@ function base_die() {
 	sprite_index = death_sprite_index;
 	image_index = death_image_index;
 	y -= 10;
-	set_force(obj_arribaca.gravity_force);
+	set_force(obj_dove.gravity_force);
 	begin_rotate();
 	increase_extra_point(self, points_on_death);
 }

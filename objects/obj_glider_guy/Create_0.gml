@@ -2,7 +2,7 @@ event_inherited();
 
 min_y = 20;
 max_y = 40;
-speed_towards_arribaca = 1;
+speed_towards_dove = 1;
 death_rotation_speed = -10;
 var _bbox_yoffset = bbox_get_yoffset(self);
 min_y += _bbox_yoffset;
@@ -65,7 +65,7 @@ function update_movement() {
 		return;
 	}
 	
-	var _force = obj_game.flying_speed + speed_towards_arribaca;
+	var _force = obj_game.flying_speed + speed_towards_dove;
 	x += lengthdir_x(_force, image_angle);
 	y += lengthdir_y(_force, image_angle);
 	

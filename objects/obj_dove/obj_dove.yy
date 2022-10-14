@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_arribaca_dead",
+  "name": "obj_dove",
   "spriteId": {
-    "name": "spr_arribaca_dead",
-    "path": "sprites/spr_arribaca_dead/spr_arribaca_dead.yy",
+    "name": "spr_dove_alive",
+    "path": "sprites/spr_dove_alive/spr_dove_alive.yy",
   },
   "solid": false,
   "visible": true,

@@ -1,3 +1,3 @@
 event_inherited();
 
-speed_towards_arribaca = 3;
+speed_towards_dove = 3;

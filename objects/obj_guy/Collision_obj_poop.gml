@@ -6,7 +6,7 @@ poop_instance.is_falling = false;
 sprite_index = spr_guy_mad;
 var _points = poop_instance.points_on_hit;
 
-if (obj_arribaca.x > obj_arribaca.xstart + obj_arribaca.sprite_width)
+if (obj_dove.x > obj_dove.xstart + obj_dove.sprite_width)
 	_points *= 2;
 
 increase_extra_point(other, _points);

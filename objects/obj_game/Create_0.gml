@@ -72,7 +72,7 @@ function terminate() {
 }
 
 function setup_objects_on_start() {
-	with (obj_arribaca)
+	with (obj_dove)
 		is_flying = true;
 	
 	with (obj_cliff)

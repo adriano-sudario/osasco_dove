@@ -5,14 +5,14 @@ if (!is_active) {
 		return;
 }
 
-is_arribaca_alive = instance_exists(obj_arribaca);
+is_dove_alive = instance_exists(obj_dove);
 
 if (mouse_check_button_pressed(mb_left)) {
 	if (instance_exists(obj_back_button)) {
 		if (collision_point(mouse_x, mouse_y, obj_back_button, false, false))
 			room_restart();
 	} else {
-		var _is_poop_button_avaiable = is_arribaca_alive && obj_poop_button.is_active;
+		var _is_poop_button_avaiable = is_dove_alive && obj_poop_button.is_active;
 	
 		if (_is_poop_button_avaiable && collision_point(mouse_x, mouse_y, obj_poop_button, false, false))
 			on_poop_button_tap_begin();
