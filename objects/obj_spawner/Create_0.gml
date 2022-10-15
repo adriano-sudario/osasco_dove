@@ -1,19 +1,9 @@
-minimum_waiting_seconds = 2;
-maximum_waiting_seconds = 4;
 time_source = noone;
-collectible = {
-	apple: { index: obj_apple, y_range: { min_y: 20, max_y: 20 } }
-};
-enemy = {
-	guy: { index: obj_guy, y_range: noone },
-	airplane: { index: obj_airplane, y_range: { min_y: 20, max_y: 240 } },
-	big_cry: { index: obj_big_cry, y_range: noone },
-	balloon_priest: { index: obj_balloon_priest, y_range: { min_y: 100, max_y: 100 } },
-	glider_guy: { index: obj_glider_guy, y_range: { min_y: 20, max_y: 240 } },
-};
 
 function begin_next_spawn_cooldown() {
-	var _seconds = irandom_range(minimum_waiting_seconds, maximum_waiting_seconds);
+	var _minimum_waiting_seconds = obj_game.current_level.spawn_seconds_range.minimum;
+	var _maximum_waiting_seconds = obj_game.current_level.spawn_seconds_range.maximum;
+	var _seconds = irandom_range(_minimum_waiting_seconds, _maximum_waiting_seconds);
 	time_source = call_later(_seconds, time_source_units_seconds, spawn);
 }
 
@@ -35,15 +25,21 @@ function spawn_entity(_entity) {
 }
 
 function spawn_collectible() {
-	spawn_entity(collectible.apple);
+	spawn_entity(obj_game.collectible.apple);
 }
 
 function spawn_enemy() {
-	spawn_entity(enemy.big_cry);
+	var _enemy_index = irandom(array_length(obj_game.current_level.enemies) - 1);
+	var _enemy = obj_game.current_level.enemies[_enemy_index];
+	spawn_entity(_enemy);
 }
 
 function spawn() {
-	spawn_enemy();
+	if (random(1) <= obj_game.current_level.collectible_spawn_chance)
+		spawn_collectible();
+	else
+		spawn_enemy();
+	
 	begin_next_spawn_cooldown();
 }
 

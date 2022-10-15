@@ -1,6 +1,4 @@
 description = "EXTRA";
-extra = 0;
-shown_points = 0;
 font = fnt_monogram_medium;
 margin_y = 5;
 margin_x = 100;

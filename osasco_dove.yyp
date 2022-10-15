@@ -26,6 +26,7 @@
     {"id":{"name":"easing_functions","path":"scripts/easing_functions/easing_functions.yy",},"order":1,},
     {"id":{"name":"obj_distance_manager","path":"objects/obj_distance_manager/obj_distance_manager.yy",},"order":5,},
     {"id":{"name":"obj_dash_cooldown_bar","path":"objects/obj_dash_cooldown_bar/obj_dash_cooldown_bar.yy",},"order":4,},
+    {"id":{"name":"string_with_thousand_commas","path":"scripts/string_with_thousand_commas/string_with_thousand_commas.yy",},"order":5,},
     {"id":{"name":"bbox_get_yoffset","path":"scripts/bbox_get_yoffset/bbox_get_yoffset.yy",},"order":2,},
     {"id":{"name":"obj_extra_manager","path":"objects/obj_extra_manager/obj_extra_manager.yy",},"order":6,},
     {"id":{"name":"obj_particle","path":"objects/obj_particle/obj_particle.yy",},"order":3,},

@@ -1,15 +1,134 @@
 #macro STARTING_FLYING_SPEED 10;
 #macro STARTING_MULTIPLIER 1;
+#macro STARTING_DASH_COOLDOWN 3000;
 flying_speed = STARTING_FLYING_SPEED;
 multiplier = STARTING_MULTIPLIER;
+distance = 0;
+extra_points = 0;
+shown_extra_points = 0;
 has_ended = false;
 has_started = false;
 has_shown_slide_tutorial = false;
+collectible = {
+	apple: { index: obj_apple, y_range: { min_y: 20, max_y: 20 } }
+};
+enemy = {
+	guy: { index: obj_guy, y_range: noone },
+	airplane: { index: obj_airplane, y_range: { min_y: 20, max_y: 240 } },
+	big_cry: { index: obj_big_cry, y_range: noone },
+	balloon_priest: { index: obj_balloon_priest, y_range: { min_y: 100, max_y: 100 } },
+	glider_guy: { index: obj_glider_guy, y_range: { min_y: 20, max_y: 240 } },
+};
+var _begining_dash_distance = STARTING_FLYING_SPEED;
+levels_config = [
+	{
+		speed_increment: 0,
+		multiplier_increment: 0,
+		enemies: [enemy.guy],
+		spawn_seconds_range: { minimum: 2, maximum: 4 },
+		collectible_spawn_chance: .25,
+		maximum_distance: 2500,
+		dash_distance: _begining_dash_distance,
+		dash_cooldown_decrement: 250,
+	},
+	{
+		speed_increment: 2,
+		multiplier_increment: .25,
+		enemies: [enemy.guy, enemy.airplane, enemy.big_cry],
+		spawn_seconds_range: { minimum: 2, maximum: 4 },
+		collectible_spawn_chance: .25,
+		maximum_distance: 7500,
+		dash_distance: _begining_dash_distance,
+		dash_cooldown_decrement: 250,
+	},
+	{
+		speed_increment: 2,
+		multiplier_increment: .5,
+		enemies: [enemy.guy, enemy.airplane, enemy.big_cry, enemy.balloon_priest, enemy.glider_guy],
+		spawn_seconds_range: { minimum: 2, maximum: 4 },
+		collectible_spawn_chance: .2,
+		maximum_distance: 15000,
+		dash_distance: _begining_dash_distance,
+		dash_cooldown_decrement: 500,
+	},
+	{
+		speed_increment: 1,
+		multiplier_increment: .75,
+		enemies: [
+			enemy.guy,
+			enemy.airplane,
+			enemy.airplane,
+			enemy.big_cry,
+			enemy.big_cry,
+			enemy.balloon_priest,
+			enemy.glider_guy,
+		],
+		spawn_seconds_range: { minimum: 2, maximum: 3.5 },
+		collectible_spawn_chance: .2,
+		maximum_distance: 30000,
+		dash_distance: _begining_dash_distance + 3,
+		dash_cooldown_decrement: 500,
+	},
+	{
+		speed_increment: 1,
+		multiplier_increment: 1.5,
+		enemies: [
+			enemy.guy,
+			enemy.airplane,
+			enemy.airplane,
+			enemy.big_cry,
+			enemy.big_cry,
+			enemy.balloon_priest,
+			enemy.balloon_priest,
+			enemy.glider_guy,
+			enemy.glider_guy,
+		],
+		spawn_seconds_range: { minimum: 2, maximum: 3.5 },
+		collectible_spawn_chance: .15,
+		maximum_distance: 60000,
+		dash_distance: _begining_dash_distance + 5,
+		dash_cooldown_decrement: 500,
+	},
+	{
+		speed_increment: 1,
+		multiplier_increment: .25,
+		enemies: [enemy.guy, enemy.airplane, enemy.big_cry, enemy.balloon_priest, enemy.glider_guy],
+		spawn_seconds_range: { minimum: 2, maximum: 3.5 },
+		collectible_spawn_chance: .1,
+		maximum_distance: 100000,
+		dash_distance: _begining_dash_distance + 5,
+		dash_cooldown_decrement: 0,
+	},
+];
+level = 0;
+current_level = levels_config[level];
+
+function go_to_next_level() {
+	if (level + 1 >= array_length(levels_config)) {
+		current_level = {
+			speed_increment: current_level.speed_increment + current_level.speed_increment,
+			multiplier_increment: current_level.multiplier_increment + current_level.multiplier_increment,
+			enemies: current_level.enemies,
+			spawn_seconds_range: current_level.spawn_seconds_range,
+			collectible_spawn_chance: current_level.collectible_spawn_chance,
+			maximum_distance: current_level.maximum_distance + current_level.maximum_distance,
+			dash_distance: current_level.dash_distance,
+			dash_cooldown_decrement: current_level.dash_cooldown_decrement,
+		};
+	} else {
+		level++;
+		current_level = levels_config[level];
+	}
+	
+	flying_speed += current_level.speed_increment;
+	multiplier += current_level.multiplier_increment;
+	obj_dove.dash_cooldown_ms -= current_level.dash_cooldown_decrement;
+}
 
 function terminate() {
 	with(obj_record_manager) {
-		var _distance = obj_distance_manager.distance;
-		var _points = _distance + obj_extra_manager.extra;
+		var _distance = obj_game.distance;
+		var _points = _distance + obj_game.extra_points;
 		
 		if (_points > best_points)
 			best_points = _points;
@@ -18,9 +137,8 @@ function terminate() {
 			_distance = _distance;
 		
 		distance_description = "further: " + obj_distance_manager.get_distance_display();
-		points_description = "best: " + string(best_distance + best_points) + "pts";
-		description = "best: " + string(best_distance + best_points) + "pts ~ " +
-			obj_distance_manager.get_distance_display();
+		points_description = "best: " +
+			string_with_thousand_commas(ceil(best_distance + best_points)) + "pts";
 	}
 	
 	flying_speed = 0;
@@ -72,17 +190,17 @@ function terminate() {
 }
 
 function setup_objects_on_start() {
-	with (obj_dove)
+	
+	with (obj_dove) {
 		is_flying = true;
+		dash_cooldown_ms = STARTING_DASH_COOLDOWN;
+	}
 	
 	with (obj_cliff)
 		is_leaving = true;
 	
 	with (obj_poop_button)
 		visible = true;
-	
-	with (obj_game)
-		flying_speed = STARTING_FLYING_SPEED;
 		
 	with (obj_click_hand)
 		instance_destroy();
@@ -107,6 +225,11 @@ function setup_draw() {
 function reset_variables() {
 	flying_speed = STARTING_FLYING_SPEED;
 	multiplier = STARTING_MULTIPLIER;
+	distance = 0;
+	extra_points = 0;
+	shown_extra_points = 0;
+	level = 0;
+	current_level = levels_config[level];
 	has_started = true;
 	has_ended = false;
 }
