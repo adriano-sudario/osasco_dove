@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_poop",
+  "name": "obj_poo",
   "spriteId": {
-    "name": "spr_poop",
-    "path": "sprites/spr_poop/spr_poop.yy",
+    "name": "spr_poo",
+    "path": "sprites/spr_poo/spr_poo.yy",
   },
   "solid": false,
   "visible": true,

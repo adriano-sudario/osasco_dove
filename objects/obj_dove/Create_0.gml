@@ -62,5 +62,5 @@ function stop_flapping_wings() {
 }
 
 function poop() {
-	instance_create_layer(x, y, layer, obj_poop);
+	instance_create_layer(x, y, layer, obj_poo);
 }
