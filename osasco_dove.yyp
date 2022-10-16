@@ -47,6 +47,7 @@
     {"id":{"name":"spr_dust","path":"sprites/spr_dust/spr_dust.yy",},"order":2,},
     {"id":{"name":"obj_back_button","path":"objects/obj_back_button/obj_back_button.yy",},"order":13,},
     {"id":{"name":"bbox_get_height","path":"scripts/bbox_get_height/bbox_get_height.yy",},"order":0,},
+    {"id":{"name":"spr_big_cry_dead","path":"sprites/spr_big_cry_dead/spr_big_cry_dead.yy",},"order":10,},
     {"id":{"name":"spr_airplane","path":"sprites/spr_airplane/spr_airplane.yy",},"order":2,},
     {"id":{"name":"obj_balloon_priest","path":"objects/obj_balloon_priest/obj_balloon_priest.yy",},"order":4,},
     {"id":{"name":"spr_apple","path":"sprites/spr_apple/spr_apple.yy",},"order":0,},

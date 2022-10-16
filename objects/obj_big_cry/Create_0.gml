@@ -14,8 +14,8 @@ force_increment = .05;
 force_applied = 0;
 var _center_of_screen = display_get_gui_width() * .5;
 x_flip_trigger = irandom_range(_center_of_screen - 150, _center_of_screen + 150);
-death_sprite_index = spr_guy;
-death_image_index = 1;
+death_sprite_index = spr_big_cry_dead;
+death_image_index = 0;
 poop_instance = noone;
 
 function die() {
