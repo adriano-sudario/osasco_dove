@@ -138,7 +138,7 @@ function terminate() {
 		
 		distance_description = "further: " + obj_distance_manager.get_distance_display();
 		points_description = "best: " +
-			string_with_thousand_commas(ceil(best_distance + best_points)) + "pts";
+			string(ceil(best_distance + best_points)) + "pts";
 	}
 	
 	flying_speed = 0;

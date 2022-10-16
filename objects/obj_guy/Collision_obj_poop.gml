@@ -1,4 +1,4 @@
-if (poop_instance != noone)
+if (poop_instance != noone || !instance_exists(obj_dove))
 	return;
 
 poop_instance = other;
