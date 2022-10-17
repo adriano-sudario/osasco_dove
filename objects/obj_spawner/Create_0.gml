@@ -25,7 +25,7 @@ function spawn_entity(_entity) {
 }
 
 function spawn_collectible() {
-	spawn_entity(obj_game.collectible.apple);
+	spawn_entity(obj_game.collectible.coin);
 }
 
 function spawn_enemy() {

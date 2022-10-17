@@ -10,7 +10,7 @@ has_ended = false;
 has_started = false;
 has_shown_slide_tutorial = false;
 collectible = {
-	apple: { index: obj_apple, y_range: { min_y: 20, max_y: 20 } }
+	coin: { index: obj_coin, y_range: { min_y: 20, max_y: 20 } }
 };
 enemy = {
 	guy: { index: obj_guy, y_range: noone },
@@ -27,7 +27,7 @@ levels_config = [
 		enemies: [enemy.guy],
 		spawn_seconds_range: { minimum: 2, maximum: 4 },
 		collectible_spawn_chance: .25,
-		maximum_distance: 2500,
+		maximum_distance: 100,
 		dash_distance: _begining_dash_distance,
 		dash_cooldown_decrement: 0,
 	},
@@ -37,7 +37,7 @@ levels_config = [
 		enemies: [enemy.guy, enemy.airplane, enemy.big_cry],
 		spawn_seconds_range: { minimum: 2, maximum: 4 },
 		collectible_spawn_chance: .25,
-		maximum_distance: 7500,
+		maximum_distance: 750,
 		dash_distance: _begining_dash_distance,
 		dash_cooldown_decrement: 250,
 	},
@@ -47,7 +47,7 @@ levels_config = [
 		enemies: [enemy.guy, enemy.airplane, enemy.big_cry, enemy.balloon_priest, enemy.glider_guy],
 		spawn_seconds_range: { minimum: 2, maximum: 3.5 },
 		collectible_spawn_chance: .2,
-		maximum_distance: 15000,
+		maximum_distance: 1500,
 		dash_distance: _begining_dash_distance,
 		dash_cooldown_decrement: 250,
 	},
@@ -65,7 +65,7 @@ levels_config = [
 		],
 		spawn_seconds_range: { minimum: 1.5, maximum: 3 },
 		collectible_spawn_chance: .2,
-		maximum_distance: 30000,
+		maximum_distance: 3000,
 		dash_distance: _begining_dash_distance + 3,
 		dash_cooldown_decrement: 500,
 	},
@@ -85,7 +85,7 @@ levels_config = [
 		],
 		spawn_seconds_range: { minimum: 1.5, maximum: 3 },
 		collectible_spawn_chance: .15,
-		maximum_distance: 60000,
+		maximum_distance: 6000,
 		dash_distance: _begining_dash_distance + 5,
 		dash_cooldown_decrement: 500,
 	},
@@ -95,7 +95,7 @@ levels_config = [
 		enemies: [enemy.guy, enemy.airplane, enemy.big_cry, enemy.balloon_priest, enemy.glider_guy],
 		spawn_seconds_range: { minimum: 1.5, maximum: 3 },
 		collectible_spawn_chance: .1,
-		maximum_distance: 100000,
+		maximum_distance: 10000,
 		dash_distance: _begining_dash_distance + 5,
 		dash_cooldown_decrement: 0,
 	},
@@ -138,7 +138,7 @@ function terminate() {
 		
 		distance_description = "further: " + obj_distance_manager.get_distance_display();
 		points_description = "best: " +
-			string(ceil(best_distance + best_points)) + "pts";
+			string(round(best_distance + best_points)) + "pts";
 	}
 	
 	flying_speed = 0;

@@ -9,7 +9,7 @@ x = obj_poop_button.x - obj_poop_button.sprite_xoffset - margin_x - (description
 y = obj_poop_button.y - (description_height * .5) - (margin_y *.5);
 
 function get_distance_display() {
-	var _distance = real(obj_game.distance);
+	var _distance = round(obj_game.distance);
 	var _measure = "m";
 	
 	if (_distance >= 1000) {

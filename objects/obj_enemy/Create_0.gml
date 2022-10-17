@@ -8,7 +8,7 @@ death_rotation_increment = 0;
 death_sprite_index = sprite_index;
 death_image_index = 0;
 death_rotation_speed = 10;
-points_on_death = 50;
+points_on_death = 25;
 
 function set_force(_force) {
 	death_starting_force = _force;
