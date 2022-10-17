@@ -5,8 +5,8 @@ if (frames_count >= (is_holding ? max_frames_on_holding : max_frames_on_handing_
 	is_holding = !is_holding;
 	
 	if (!is_holding) {
-		x = xstart + lengthdir_x(irandom(280), irandom(360));
-		y = ystart + lengthdir_x(irandom(280), irandom(360));
+		x = xstart + irandom_range(-220, 260);
+		y = ystart + irandom_range(-120, 180);
 	}
 }
 
