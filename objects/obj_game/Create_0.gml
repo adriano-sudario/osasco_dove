@@ -144,6 +144,7 @@ function terminate() {
 	flying_speed = 0;
 	has_started = false;
 	has_ended = true;
+	audio_stop_sound(stk_main_theme);
 	
 	with(obj_slide_hand)
 		instance_destroy();
@@ -238,4 +239,7 @@ function start() {
 	reset_variables();
 	setup_draw();
 	setup_objects_on_start();
+	
+	if (!audio_is_playing(stk_main_theme))
+		play_sound(stk_main_theme, true);
 }

@@ -18,7 +18,7 @@ function die() {
 	sprite_set_offset(death_dove, sprite_xoffset, sprite_yoffset);
 	death_dove.set_force(gravity_force);
 	obj_game.terminate();
-	
+	play_sound(sfx_death);
 	instance_destroy();
 }
 
@@ -32,6 +32,7 @@ function dash(_angle) {
 	image_angle = _angle;
 	image_index = 0;
 	sprite_index = spr_dove_dash;
+	play_sound(sfx_dash, false, .5);
 }
 
 function on_dash_end() {
@@ -49,8 +50,12 @@ function flap_wings() {
 	if (flight_force_frames_count >= flight_force_frames_reset)
 		flight_force_frames_count = 0;
 	
-	if (flight_force_frames_count == 0)
+	if (flight_force_frames_count == 0) {
 		is_flight_force_applied = !is_flight_force_applied;
+		
+		if (is_flight_force_applied)
+			play_sound(sfx_flap);
+	}
 	
 	gravity_force_applied -= flight_force;
 }
@@ -62,5 +67,6 @@ function stop_flapping_wings() {
 }
 
 function poop() {
+	play_sound(sfx_poop);
 	instance_create_layer(x, y, layer, obj_poo);
 }

@@ -9,6 +9,8 @@ if (is_dashing) {
 	if (current_dash_speed <= obj_game.current_level.dash_distance)
 		on_dash_end();
 	
+	instance_create_layer(x - 60, y, layer, obj_dove_particle);
+	
 	return;
 }
 

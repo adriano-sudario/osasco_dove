@@ -7,4 +7,6 @@ function increase_extra_point(_from_instance, _points) {
 	
 	with(instance_create_layer(_from_instance.x, _from_instance.y, layer, obj_extra_earned))
 		points = _increase_points;
+	
+	play_sound(sfx_score);
 }
