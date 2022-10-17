@@ -9,6 +9,7 @@ shown_extra_points = 0;
 has_ended = false;
 has_started = false;
 has_shown_slide_tutorial = false;
+
 collectible = {
 	coin: { index: obj_coin, y_range: { min_y: 20, max_y: 20 } }
 };
@@ -102,6 +103,16 @@ levels_config = [
 ];
 level = 0;
 current_level = levels_config[level];
+is_mobile = os_type == os_android;
+
+if (os_type == os_gxgames)
+{
+	var _info = os_get_info();
+	is_mobile = _info[? "mobile"];
+}
+
+if (!is_mobile)
+	instance_create_layer(0, 0, layer, obj_keyboard_inputs_controller);
 
 function go_to_next_level() {
 	if (level + 1 >= array_length(levels_config)) {
@@ -191,7 +202,6 @@ function terminate() {
 }
 
 function setup_objects_on_start() {
-	
 	with (obj_dove) {
 		is_flying = true;
 		dash_cooldown_ms = STARTING_DASH_COOLDOWN;

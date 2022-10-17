@@ -8,6 +8,9 @@ elapsed_holding_tap_ms = 0;
 max_holding_tap_ms_to_dash = 250;
 
 function start_game() {
+	with(obj_keyboard_inputs_controller)
+		is_active = true;
+	
 	is_active = true;
 	obj_game.start();
 }

@@ -73,6 +73,7 @@
     {"id":{"name":"spr_black","path":"sprites/spr_black/spr_black.yy",},"order":0,},
     {"id":{"name":"obj_cliff","path":"objects/obj_cliff/obj_cliff.yy",},"order":2,},
     {"id":{"name":"obj_spawner","path":"objects/obj_spawner/obj_spawner.yy",},"order":2,},
+    {"id":{"name":"obj_keyboard_inputs_controller","path":"objects/obj_keyboard_inputs_controller/obj_keyboard_inputs_controller.yy",},"order":6,},
     {"id":{"name":"fnt_monogram_medium","path":"fonts/fnt_monogram_medium/fnt_monogram_medium.yy",},"order":0,},
     {"id":{"name":"sfx_score","path":"sounds/sfx_score/sfx_score.yy",},"order":2,},
     {"id":{"name":"spr_guy_mad","path":"sprites/spr_guy_mad/spr_guy_mad.yy",},"order":1,},
