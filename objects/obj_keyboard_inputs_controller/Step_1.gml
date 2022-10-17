@@ -23,8 +23,8 @@ if (keyboard_check_released(vk_up))
 if (keyboard_check_pressed(vk_right))
 	on_dash_input();
 
-if (keyboard_check_pressed(vk_down))
+if (keyboard_check_pressed(vk_down) || mouse_check_button_pressed(mb_middle))
 	on_poop_input_begin();
 
-if (keyboard_check_released(vk_down))
+if (keyboard_check_released(vk_down) || mouse_check_button_released(mb_middle))
 	on_poop_input_released();
