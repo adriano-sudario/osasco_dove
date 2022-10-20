@@ -2,8 +2,8 @@
   "resourceType": "GMOperaGXOptions",
   "resourceVersion": "1.0",
   "name": "operagx",
-  "option_operagx_version": "1.0.0.5",
-  "option_operagx_next_version": "1.0.0.6",
+  "option_operagx_version": "1.0.0.11",
+  "option_operagx_next_version": "1.0.0.12",
   "option_operagx_game_name": "Osasco Dove",
   "option_operagx_interpolate_pixels": true,
   "option_operagx_scale": 0,
@@ -14,5 +14,5 @@
   "option_operagx_team_id": "b174aa2a-7aff-47a6-988f-21165fc3f0bc",
   "option_operagx_editUrl": "https://create.gx.games/game/8de29841-1c84-4a9b-9c93-5239bae67fa5/edit",
   "option_operagx_internalShareUrl": "https://gx.games/games/y3vyka/osasco-dove/tracks/fcc085ab-edfc-49aa-8f3e-6ad62a2cdb52/",
-  "option_operagx_publicShareUrl": "",
+  "option_operagx_publicShareUrl": "https://gx.games/games/y3vyka/osasco-dove/",
 }

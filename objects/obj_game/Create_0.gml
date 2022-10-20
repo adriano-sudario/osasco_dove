@@ -114,6 +114,8 @@ if (os_type == os_gxgames)
 if (!is_mobile)
 	instance_create_layer(0, 0, layer, obj_keyboard_inputs_controller);
 
+play_sound(stk_intro, true);
+
 function go_to_next_level() {
 	if (level + 1 >= array_length(levels_config)) {
 		current_level = {
@@ -155,7 +157,6 @@ function terminate() {
 	flying_speed = 0;
 	has_started = false;
 	has_ended = true;
-	audio_stop_sound(stk_main_theme);
 	
 	with(obj_slide_hand)
 		instance_destroy();
@@ -250,6 +251,8 @@ function start() {
 	setup_draw();
 	setup_objects_on_start();
 	
-	if (!audio_is_playing(stk_main_theme))
-		play_sound(stk_main_theme, true);
+	audio_stop_sound(stk_intro);
+	
+	if (!audio_is_playing(stk_pomba_beat))
+		play_sound(stk_pomba_beat, true);
 }
