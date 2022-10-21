@@ -21,10 +21,13 @@ if (mouse_check_button_pressed(mb_left)) {
 	}
 }
 
-if (is_holding_poop_button && mouse_check_button_released(mb_left))
-	on_poop_button_tap_released();
-else if (is_holding_tap && mouse_check_button_released(mb_left))
-	on_tap_released();
+if (mouse_check_button_released(mb_left)) {
+	if (is_holding_poop_button)
+		on_poop_button_tap_released();
+
+	if (is_holding_tap)
+		on_tap_released();
+}
 
 if (is_holding_tap)
 	on_tap_hold();

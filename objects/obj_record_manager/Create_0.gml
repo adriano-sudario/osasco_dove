@@ -3,6 +3,7 @@ margin_y = 40;
 margin = 40;
 best_distance = 0;
 best_points = 0;
+best_poops_hit = 0;
 distance_description = "";
 points_description = "";
 draw_set_font(font);

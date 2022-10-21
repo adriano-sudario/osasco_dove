@@ -13,3 +13,6 @@ increase_extra_point(other, _points);
 
 if (poop_instance.y >= bbox_top)
 	poop_instance.image_angle = 90;
+
+with (obj_game)
+	poops_hit_count++;

@@ -5,6 +5,7 @@ flying_speed = STARTING_FLYING_SPEED;
 multiplier = STARTING_MULTIPLIER;
 distance = 0;
 extra_points = 0;
+poops_hit_count = 0;
 shown_extra_points = 0;
 has_ended = false;
 has_started = false;
@@ -140,14 +141,24 @@ function go_to_next_level() {
 
 function terminate() {
 	with(obj_record_manager) {
-		var _distance = obj_game.distance;
-		var _points = _distance + obj_game.extra_points;
+		var _distance = other.distance;
+		var _points = _distance + other.extra_points;
+		var _poops_hit_count = other.poops_hit_count;
 		
-		if (_points > best_points)
+		if (_points > best_points) {
 			best_points = _points;
+			opera_gx_challenge_submit_scorer_challenge(best_points);
+		}
 		
-		if (_distance > best_distance)
-			_distance = _distance;
+		if (_distance > best_distance) {
+			best_distance = _distance;
+			opera_gx_challenge_submit_traveller_challenge(best_distance);
+		}
+		
+		if (_poops_hit_count > best_poops_hit) {
+			best_poops_hit = _poops_hit_count;
+			opera_gx_challenge_submit_sniper_challenge(best_poops_hit);
+		}
 		
 		distance_description = "further: " + obj_distance_manager.get_distance_display();
 		points_description = "best: " +
@@ -239,6 +250,7 @@ function reset_variables() {
 	multiplier = STARTING_MULTIPLIER;
 	distance = 0;
 	extra_points = 0;
+	poops_hit_count = 0;
 	shown_extra_points = 0;
 	level = 0;
 	current_level = levels_config[level];
