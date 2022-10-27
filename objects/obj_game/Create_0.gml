@@ -145,24 +145,22 @@ function terminate() {
 		var _points = _distance + other.extra_points;
 		var _poops_hit_count = other.poops_hit_count;
 		
-		if (_points > best_points) {
+		if (_points > best_points)
 			best_points = _points;
-			opera_gx_challenge_submit_scorer_challenge(best_points);
-		}
 		
-		if (_distance > best_distance) {
+		if (_distance > best_distance)
 			best_distance = _distance;
-			opera_gx_challenge_submit_traveller_challenge(best_distance);
-		}
 		
-		if (_poops_hit_count > best_poops_hit) {
+		if (_poops_hit_count > best_poops_hit)
 			best_poops_hit = _poops_hit_count;
-			opera_gx_challenge_submit_sniper_challenge(best_poops_hit);
-		}
 		
 		distance_description = "further: " + obj_distance_manager.get_distance_display();
 		points_description = "best: " +
 			string(round(best_distance + best_points)) + "pts";
+			
+		opera_gx_challenge_submit_scorer_challenge(best_points);
+		opera_gx_challenge_submit_traveller_challenge(best_distance);
+		opera_gx_challenge_submit_sniper_challenge(best_poops_hit);
 	}
 	
 	flying_speed = 0;
