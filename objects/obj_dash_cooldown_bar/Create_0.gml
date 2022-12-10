@@ -19,7 +19,7 @@ function begin_cooldown() {
 	});
 }
 
-function load() {
+function start() {
 	is_visible = true;
 	begin_cooldown();
 }

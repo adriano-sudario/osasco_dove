@@ -1,3 +1,4 @@
+#macro SAVE_FILE "save.bin"
 #macro STARTING_FLYING_SPEED 10;
 #macro STARTING_MULTIPLIER 1;
 #macro STARTING_DASH_COOLDOWN 3000;
@@ -141,23 +142,8 @@ function go_to_next_level() {
 
 function terminate() {
 	with(obj_record_manager) {
-		var _distance = other.distance;
-		var _points = _distance + other.extra_points;
-		var _poops_hit_count = other.poops_hit_count;
+		update_record(other.distance, other.extra_points, other.poops_hit_count);
 		
-		if (_points > best_points)
-			best_points = _points;
-		
-		if (_distance > best_distance)
-			best_distance = _distance;
-		
-		if (_poops_hit_count > best_poops_hit)
-			best_poops_hit = _poops_hit_count;
-		
-		distance_description = "further: " + obj_distance_manager.get_distance_display();
-		points_description = "best: " +
-			string(round(best_distance + best_points)) + "pts";
-			
 		opera_gx_challenge_submit_scorer_challenge(best_points);
 		opera_gx_challenge_submit_traveller_challenge(best_distance);
 		opera_gx_challenge_submit_sniper_challenge(best_poops_hit);
@@ -231,10 +217,7 @@ function setup_objects_on_start() {
 	instance_create_depth(0, 0, -999, obj_points_manager);
 	instance_create_layer(0, 0, layer, obj_spawner);
 	
-	if (!instance_exists(obj_record_manager))
-		instance_create_depth(0, 0, -999, obj_record_manager);
-	
-	obj_dash_cooldown_bar.load();
+	obj_dash_cooldown_bar.start();
 }
 
 function setup_draw() {
