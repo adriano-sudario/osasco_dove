@@ -34,32 +34,32 @@ function on_tap_hold() {
 }
 
 function on_tap_released() {
-	is_holding_tap = false;
-	
-	if (is_dove_alive) {
-		obj_dove.stop_flapping_wings();
-		
-		if (elapsed_holding_tap_ms <= max_holding_tap_ms_to_dash) {
-			var _taps_length = array_length(tap_hold_positions);
-			var _first_tap = tap_hold_positions[0];
-			var _last_tap = tap_hold_positions[_taps_length - 1];
-			var _is_left_to_right = _first_tap.x < _last_tap.x;
-			var _tap_distance = point_distance(_first_tap.x, _first_tap.y, _last_tap.x, _last_tap.y);
-			
-			if (_is_left_to_right && _tap_distance >= boost_minimum_distance) {
-				if (instance_exists(obj_slide_hand)) {
-					obj_game.has_shown_slide_tutorial = true;
-					instance_destroy(obj_slide_hand);
-				}
-				
-				var _angle = point_direction(_first_tap.x, _first_tap.y, _last_tap.x, _last_tap.y);
-				obj_dove.dash(_angle);
-			}
-		}
-	}
-	
 	elapsed_holding_tap_ms = 0;
 	tap_hold_positions = [];
+	is_holding_tap = false;
+	
+	if (!is_dove_alive)
+		return;
+	
+	obj_dove.stop_flapping_wings();
+	var _taps_length = array_length(tap_hold_positions);
+	
+	if (_taps_length > 0 && elapsed_holding_tap_ms <= max_holding_tap_ms_to_dash) {
+		var _first_tap = tap_hold_positions[0];
+		var _last_tap = tap_hold_positions[_taps_length - 1];
+		var _is_left_to_right = _first_tap.x < _last_tap.x;
+		var _tap_distance = point_distance(_first_tap.x, _first_tap.y, _last_tap.x, _last_tap.y);
+			
+		if (_is_left_to_right && _tap_distance >= boost_minimum_distance) {
+			if (instance_exists(obj_slide_hand)) {
+				obj_game.has_shown_slide_tutorial = true;
+				instance_destroy(obj_slide_hand);
+			}
+				
+			var _angle = point_direction(_first_tap.x, _first_tap.y, _last_tap.x, _last_tap.y);
+			obj_dove.dash(_angle);
+		}
+	}
 }
 
 function on_poop_button_tap_begin() {
