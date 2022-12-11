@@ -29,17 +29,17 @@ function dash(_angle) {
 	is_dashing = true;
 	current_dash_speed = dash_speed;
 	can_dash = false;
+	sprite_index = spr_dove_dash;
 	image_angle = _angle;
 	image_index = 0;
-	sprite_index = spr_dove_dash;
 	play_sound(sfx_dash, false, .5);
 }
 
 function on_dash_end() {
 	is_dashing = false;
+	sprite_index = spr_dove_alive;
 	image_angle = 0;
 	image_index = 1;
-	sprite_index = spr_dove_alive;
 	obj_dash_cooldown_bar.begin_cooldown();
 }
 

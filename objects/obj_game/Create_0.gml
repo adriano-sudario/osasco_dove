@@ -220,6 +220,17 @@ function setup_objects_on_start() {
 	obj_dash_cooldown_bar.start();
 }
 
+function setup_android() {
+	device_mouse_dbclick_enable(false);
+	application_surface_enable(false);
+	
+	var _base_width = room_width;
+	var _base_height = room_height;
+	var _aspect = _base_width / _base_height;
+	
+	display_set_gui_size(_base_width, _base_width / _aspect);
+}
+
 function setup_draw() {
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);

@@ -71,6 +71,7 @@ function flip() {
 	reset_flip_force();
 	set_flip_force();
 	sprite_index = spr_big_cry_flip;
+	image_index = 0;
 }
 
 function get_back_to_the_floor() {
@@ -114,8 +115,7 @@ function update_movement() {
 		if (image_index < 2)
 			image_index = 2;
 		
-		if (bbox_bottom > obj_tap_area.bbox_top) {
+		if (bbox_bottom > obj_tap_area.bbox_top)
 			end_flip();
-		}
 	}
 }

@@ -16,7 +16,8 @@ if (mouse_check_button_pressed(mb_left)) {
 	
 		if (_is_poop_button_avaiable && collision_point(mouse_x, mouse_y, obj_poop_button, false, false))
 			on_poop_button_tap_begin();
-		else if (collision_point(mouse_x, mouse_y, obj_tap_area, false, false))
+		
+		if (collision_point(mouse_x, mouse_y, obj_tap_area, false, false))
 			on_tap_begin();
 	}
 }
