@@ -108,13 +108,7 @@ current_level = levels_config[level];
 is_mobile = os_type == os_android;
 
 if (os_type == os_gxgames)
-{
-	var _info = os_get_info();
-	is_mobile = _info[? "mobile"];
-}
-
-if (!is_mobile)
-	instance_create_layer(0, 0, layer, obj_keyboard_inputs_controller);
+	is_mobile = os_get_info()[? "mobile"];
 
 play_sound(stk_intro, true);
 
@@ -218,17 +212,6 @@ function setup_objects_on_start() {
 	instance_create_layer(0, 0, layer, obj_spawner);
 	
 	obj_dash_cooldown_bar.start();
-}
-
-function setup_android() {
-	device_mouse_dbclick_enable(false);
-	application_surface_enable(false);
-	
-	var _base_width = room_width;
-	var _base_height = room_height;
-	var _aspect = _base_width / _base_height;
-	
-	display_set_gui_size(_base_width, _base_width / _aspect);
 }
 
 function setup_draw() {
