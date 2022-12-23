@@ -26,7 +26,7 @@ function die() {
 		other.sprite_index = spr_big_cry_floor;
 		var _bbox_yoffset = bbox_get_yoffset(other);
 		var _bbox_height = bbox_get_height(other);
-		var _floor = obj_tap_area.bbox_top;
+		var _floor = obj_container.bbox_top;
 		floor_y_position = _floor - _bbox_height + _bbox_yoffset;
 		
 		if (other.force_applied > 0)
@@ -79,7 +79,7 @@ function get_back_to_the_floor() {
 	image_index = 1;
 	var _bbox_yoffset = bbox_get_yoffset(self);
 	var _bbox_height = bbox_get_height(self);
-	var _floor = obj_tap_area.bbox_top;
+	var _floor = obj_container.bbox_top;
 	y = _floor - _bbox_height + _bbox_yoffset;
 	
 	if (poop_instance != noone)
@@ -115,7 +115,7 @@ function update_movement() {
 		if (image_index < 2)
 			image_index = 2;
 		
-		if (bbox_bottom > obj_tap_area.bbox_top)
+		if (bbox_bottom > obj_container.bbox_top)
 			end_flip();
 	}
 }

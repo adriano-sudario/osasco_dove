@@ -15,7 +15,7 @@ if (x > xstart) {
 		x = xstart;
 }
 
-if (bbox_top > obj_tap_area.bbox_top + (shake != noone ? shake.magnitude : 0))
+if (bbox_top > obj_container.bbox_top + (shake != noone ? shake.magnitude : 0))
 	instance_destroy();
 
 if (shake != noone) {

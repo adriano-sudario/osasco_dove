@@ -13,7 +13,7 @@ y = obj_tap_area.bbox_top + margin_y;
 
 function update_descriptions() {
 	distance_description = "further: " + get_distance_display(best_distance);
-	points_description = "best: " + string(round(best_distance + best_points)) + "pts";
+	points_description = "best: " + string(round(best_points)) + "pts";
 }
 
 function update_record(_distance, _extra_points, _poops_hit_count) {

@@ -109,6 +109,11 @@ is_mobile = os_type == os_android;
 
 if (os_type == os_gxgames)
 	is_mobile = os_get_info()[? "mobile"];
+else if (is_mobile)
+	setup_mobile();
+
+if (!is_mobile)
+	instance_create_layer(0, 0, layer, obj_keyboard_inputs_controller);
 
 play_sound(stk_intro, true);
 

@@ -15,7 +15,7 @@ function update_movement() {
 	force_applied += gravity_force;
 	y += force_applied;
 		
-	if (!is_on_floor && bbox_bottom > obj_tap_area.bbox_top) {
+	if (!is_on_floor && bbox_bottom > obj_container.bbox_top) {
 		y = floor_y_position;
 		sprite_index = spr_skate_floor;
 		is_on_floor = true;
