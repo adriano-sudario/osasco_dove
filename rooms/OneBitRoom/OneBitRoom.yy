@@ -26,6 +26,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_57E01B7","properties":[],"isDnd":false,"objectId":{"name":"obj_inputs_controller","path":"objects/obj_inputs_controller/obj_inputs_controller.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1056.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_278026E0","properties":[],"isDnd":false,"objectId":{"name":"obj_dash_cooldown_bar","path":"objects/obj_dash_cooldown_bar/obj_dash_cooldown_bar.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":544.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_76175F91","properties":[],"isDnd":false,"objectId":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2DFB3644","properties":[],"isDnd":false,"objectId":{"name":"obj_mute_button","path":"objects/obj_mute_button/obj_mute_button.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":960.0,"y":64.0,},
       ],"visible":true,"depth":-110,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Container","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5AC28836","properties":[],"isDnd":false,"objectId":{"name":"obj_container","path":"objects/obj_container/obj_container.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1089.0,"scaleY":481.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":800.0,},
@@ -46,6 +47,7 @@
     {"name":"inst_278026E0","path":"rooms/OneBitRoom/OneBitRoom.yy",},
     {"name":"inst_5AC28836","path":"rooms/OneBitRoom/OneBitRoom.yy",},
     {"name":"inst_76175F91","path":"rooms/OneBitRoom/OneBitRoom.yy",},
+    {"name":"inst_2DFB3644","path":"rooms/OneBitRoom/OneBitRoom.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

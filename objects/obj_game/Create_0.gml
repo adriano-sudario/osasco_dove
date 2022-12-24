@@ -1,4 +1,5 @@
 #macro SAVE_FILE "save.bin"
+#macro SAVE_PREFERENCES_FILE "preferences.dt"
 #macro STARTING_FLYING_SPEED 10;
 #macro STARTING_MULTIPLIER 1;
 #macro STARTING_DASH_COOLDOWN 3000;
@@ -11,6 +12,7 @@ shown_extra_points = 0;
 has_ended = false;
 has_started = false;
 has_shown_slide_tutorial = false;
+is_mute = false;
 
 collectible = {
 	coin: { index: obj_coin, y_range: { min_y: 20, max_y: 20 } }
@@ -115,7 +117,28 @@ else if (is_mobile)
 if (!is_mobile)
 	instance_create_layer(0, 0, layer, obj_keyboard_inputs_controller);
 
-play_sound(stk_intro, true);
+function set_mute(_is_mute, _save_after_set = true) {
+	is_mute = _is_mute;
+	
+	if (is_mute)
+		audio_stop_all();
+	else if (!has_started)
+		play_sound(stk_intro, true);
+	else
+		play_sound(stk_pomba_beat, true);
+	
+	with (obj_mute_button)
+		image_index = _is_mute ? 1 : 0;
+	
+	if (_save_after_set)
+		save_preferences();
+}
+
+set_mute(load_preferences().is_mute, false);
+
+function toggle_mute() {
+	set_mute(!is_mute);
+}
 
 function go_to_next_level() {
 	if (level + 1 >= array_length(levels_config)) {
@@ -160,6 +183,9 @@ function terminate() {
 	
 	with (obj_poop_button)
 		visible = false;
+	
+	with (obj_mute_button)
+		visible = true;
 	
 	with (obj_spawner) {
 		if (time_source != noone)
@@ -207,6 +233,9 @@ function setup_objects_on_start() {
 	
 	with (obj_poop_button)
 		visible = true;
+	
+	with (obj_mute_button)
+		visible = false;
 		
 	with (obj_click_hand)
 		instance_destroy();
